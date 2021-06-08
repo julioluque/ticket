@@ -39,8 +39,13 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public void deleteTicket(Integer id) {
+	public void deleteTicketById(Integer id) {
 		repository.deleteById(id);
+	}
+
+	@Override
+	public void deleteTicketByShiftNumber(Integer shiftNumber) {
+		repository.deleteByShiftNumber(shiftNumber);
 	}
 
 }

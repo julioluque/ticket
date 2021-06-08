@@ -15,5 +15,7 @@ public interface TicketService {
 
 	public void updateTicket(TicketEntity request);
 
-	public void deleteTicket(Integer id);
+	public void deleteTicketById(Integer id);
+	
+	public void deleteTicketByShiftNumber(Integer shiftNumber);
 }

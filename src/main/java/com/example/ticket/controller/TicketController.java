@@ -86,32 +86,70 @@ public class TicketController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<TicketEntity> updateTicket(@PathVariable Integer id, @RequestBody TicketEntity ticket) {
+	public ResponseEntity<TicketEntity> updateTicket(@PathVariable Integer id, @RequestBody TicketEntity ticketEntity) {
+
+		TicketEntity ticketDB = null;
 		try {
-			ticketService.updateTicket(ticket);
-			return new ResponseEntity<>(ticket, HttpStatus.OK);
+			ticketDB = ticketService.findById(id);
+			if (ticketDB == null) {
+				log.info("updateTicket: Not Found");
+				return new ResponseEntity<>(ticketDB, HttpStatus.NOT_FOUND);
+			}
+			ticketDB.setAttentionDate(ticketEntity.getAttentionDate());
+			ticketDB.setStatus(true);
+			ticketService.updateTicket(ticketDB);
+
 		} catch (Exception e) {
-			return new ResponseEntity<>(ticket, HttpStatus.INTERNAL_SERVER_ERROR);
+			log.info("updateTicket: Internal Server Error");
+			return new ResponseEntity<>(ticketEntity, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+
+		log.info("updateTicket: Success");
+		return new ResponseEntity<>(ticketDB, HttpStatus.OK);
 	}
 
 	@PatchMapping("/{id}")
-	public ResponseEntity<TicketEntity> suspendTicket(@PathVariable Integer id, @RequestBody TicketEntity ticket) {
+	public ResponseEntity<TicketEntity> suspendTicket(@PathVariable Integer id) {
+		TicketEntity ticketDB = null;
 		try {
-			ticketService.updateTicket(ticket);
-			return new ResponseEntity<>(ticket, HttpStatus.OK);
+			ticketDB = ticketService.findById(id);
+			if (ticketDB == null) {
+				log.info("suspendTicket: Not Found");
+				return new ResponseEntity<>(ticketDB, HttpStatus.NOT_FOUND);
+			}
+			ticketDB.setStatus(false);
+			ticketService.updateTicket(ticketDB);
+
 		} catch (Exception e) {
-			return new ResponseEntity<>(ticket, HttpStatus.INTERNAL_SERVER_ERROR);
+			log.info("suspendTicket: Internal Server Error");
+			return new ResponseEntity<>(ticketDB, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+
+		log.info("suspendTicket: Success");
+		return new ResponseEntity<>(ticketDB, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteTicket(@RequestBody Integer id) {
+	public ResponseEntity<String> deleteTicketById(@PathVariable Integer id) {
 		try {
-			ticketService.deleteTicket(id);
-			return new ResponseEntity<>("", HttpStatus.OK);
+			ticketService.deleteTicketById(id);
 		} catch (Exception e) {
-			return new ResponseEntity<>("", HttpStatus.INTERNAL_SERVER_ERROR);
+			log.info("deleteTicketById: Internal Server Error");
+			return new ResponseEntity<>("deleteTicketById: Error", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		log.info("deleteTicketById: Success");
+		return new ResponseEntity<>("deleteTicketById: deleted", HttpStatus.OK);
+	}
+
+	@DeleteMapping("shiftNumber/{shiftNumber}")
+	public ResponseEntity<String> deleteTicketByShiftNumber(@PathVariable Integer shiftNumber) {
+		try {
+			ticketService.deleteTicketByShiftNumber(shiftNumber);
+		} catch (Exception e) {
+			log.info("deleteTicketById: Internal Server Error");
+			return new ResponseEntity<>("deleteTicketByShiftNumber: Error", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		log.info("deleteTicketByShiftNumber: Success");
+		return new ResponseEntity<>("deleteTicketByShiftNumber: deleted", HttpStatus.OK);
 	}
 }
