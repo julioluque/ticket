@@ -57,7 +57,7 @@ public class TicketController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<TicketEntity> getSpecificTicket(@PathVariable Integer id, @RequestParam() LocalDate today) {
+	public ResponseEntity<TicketEntity> getSpecificTicket(@PathVariable Integer id) {
 		TicketEntity response = null;
 		try {
 			response = ticketService.findById(id);

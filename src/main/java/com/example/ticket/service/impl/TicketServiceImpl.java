@@ -20,14 +20,12 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public List<TicketResponseDTO> findAll() throws Exception {
-		List<TicketResponseDTO> ticketList = repository.findAll().stream().map(TicketMapper::ticketEntityToDTO)
-				.collect(Collectors.toList());
-		return ticketList;
+		return repository.findAll().stream().map(TicketMapper::ticketEntityToDTO).collect(Collectors.toList());
 	}
 
 	@Override
 	public TicketEntity findById(Integer id) throws Exception {
-		return repository.findById(id).orElseThrow(Exception::new);
+		return repository.findById(id).orElse(null);
 	}
 
 	@Override
