@@ -1,0 +1,590 @@
+{
+	"info": {
+		"_postman_id": "b1732522-d94a-458f-b8ba-5a4d8f8337a8",
+		"name": "Ticket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE-PATH}}tickets",
+					"host": [
+						"{{BASE-PATH}}tickets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1001",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Jun 2021 13:29:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": null,\n        \"email\": null,\n        \"shiftNumber\": null,\n        \"prepaidType\": null,\n        \"attentionType\": null,\n        \"attentionDate\": \"2021-06-09\",\n        \"status\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getSpecificTicket",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE-PATH}}tickets/1",
+					"host": [
+						"{{BASE-PATH}}tickets"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1002",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Jun 2021 21:51:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Miguel\",\n    \"email\": \"miguel@gmail.com\",\n    \"shiftNumber\": 1002,\n    \"prepaidType\": \"SWISS\",\n    \"attentionType\": \"Oftalmologia\",\n    \"attentionDate\": \"2021-06-09\",\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "saveNewTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Luis\",\r\n    \"email\": \"luis@gmail.com\",\r\n    \"shiftNumber\": 1007,\r\n    \"prepaidType\": \"MEDIFE\",\r\n    \"attentionType\": \"Medicina General\",\r\n    \"attentionDate\": \"2021-07-10\",\r\n    \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE-PATH}}tickets",
+					"host": [
+						"{{BASE-PATH}}tickets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1001",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Julio\",\r\n    \"email\": \"julio.a.luque@gmail.com\",\r\n    \"shiftNumber\": 1001,\r\n    \"prepaidType\": \"OSDE\",\r\n    \"attentionType\": \"Oftalmologia\",\r\n    \"attentionDate\": \"2021-06-09\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Jun 2021 13:28:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Julio\",\n    \"email\": \"julio.a.luque@gmail.com\",\n    \"shiftNumber\": 1001,\n    \"prepaidType\": \"OSDE\",\n    \"attentionType\": \"Oftalmologia\",\n    \"attentionDate\": \"2021-06-09\",\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "updateTicket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Julio\",\r\n    \"email\": \"julio.a.luque@gmail.com\",\r\n    \"shiftNumber\": 1008,\r\n    \"prepaidType\": \"OSDE\",\r\n    \"attentionType\": \"Oftalmologia\",\r\n    \"attentionDate\": \"2021-07-30\",\r\n    \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tickets/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1001",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Julio\",\r\n    \"email\": \"julio.a.luque@gmail.com\",\r\n    \"shiftNumber\": 1001,\r\n    \"prepaidType\": \"OSDE\",\r\n    \"attentionType\": \"Oftalmologia\",\r\n    \"attentionDate\": \"2021-06-09\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Jun 2021 13:28:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Julio\",\n    \"email\": \"julio.a.luque@gmail.com\",\n    \"shiftNumber\": 1001,\n    \"prepaidType\": \"OSDE\",\n    \"attentionType\": \"Oftalmologia\",\n    \"attentionDate\": \"2021-06-09\",\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "suspendTicket",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tickets/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1001",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Julio\",\r\n    \"email\": \"julio.a.luque@gmail.com\",\r\n    \"shiftNumber\": 1001,\r\n    \"prepaidType\": \"OSDE\",\r\n    \"attentionType\": \"Oftalmologia\",\r\n    \"attentionDate\": \"2021-06-09\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Jun 2021 13:28:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Julio\",\n    \"email\": \"julio.a.luque@gmail.com\",\n    \"shiftNumber\": 1001,\n    \"prepaidType\": \"OSDE\",\n    \"attentionType\": \"Oftalmologia\",\n    \"attentionDate\": \"2021-06-09\",\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tickets/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1001",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Julio\",\r\n    \"email\": \"julio.a.luque@gmail.com\",\r\n    \"shiftNumber\": 1001,\r\n    \"prepaidType\": \"OSDE\",\r\n    \"attentionType\": \"Oftalmologia\",\r\n    \"attentionDate\": \"2021-06-09\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Jun 2021 13:28:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Julio\",\n    \"email\": \"julio.a.luque@gmail.com\",\n    \"shiftNumber\": 1001,\n    \"prepaidType\": \"OSDE\",\n    \"attentionType\": \"Oftalmologia\",\n    \"attentionDate\": \"2021-06-09\",\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteByShiftNumber",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tickets/shiftNumber/1005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"shiftNumber",
+						"1005"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1001",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Julio\",\r\n    \"email\": \"julio.a.luque@gmail.com\",\r\n    \"shiftNumber\": 1001,\r\n    \"prepaidType\": \"OSDE\",\r\n    \"attentionType\": \"Oftalmologia\",\r\n    \"attentionDate\": \"2021-06-09\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Jun 2021 13:28:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Julio\",\n    \"email\": \"julio.a.luque@gmail.com\",\n    \"shiftNumber\": 1001,\n    \"prepaidType\": \"OSDE\",\n    \"attentionType\": \"Oftalmologia\",\n    \"attentionDate\": \"2021-06-09\",\n    \"status\": true\n}"
+				}
+			]
+		}
+	]
+}
